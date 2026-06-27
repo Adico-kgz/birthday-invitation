@@ -5,8 +5,21 @@ const LoaderScreen = {
     this.openBtn = document.getElementById("openInvitationBtn");
     this.continueBtn = document.getElementById("continueToEnvelopeBtn");
 
-    this.openBtn.addEventListener("click", () => this.openInvitation());
-    this.continueBtn.addEventListener("click", () => this.goEnvelope());
+    if (this.openBtn) {
+      this.openBtn.addEventListener("click", () => this.openInvitation());
+      this.openBtn.addEventListener("touchend", (event) => {
+        event.preventDefault();
+        this.openInvitation();
+      });
+    }
+
+    if (this.continueBtn) {
+      this.continueBtn.addEventListener("click", () => this.goEnvelope());
+      this.continueBtn.addEventListener("touchend", (event) => {
+        event.preventDefault();
+        this.goEnvelope();
+      });
+    }
 
     this.animateLoader();
   },
@@ -39,32 +52,36 @@ const LoaderScreen = {
   },
 
   openInvitation() {
-    MusicController.playCinematic();
-    Effects.screenFlash();
+    if (window.MusicController && MusicController.playIntro) {
+      MusicController.playIntro();
+    }
 
-    if (window.gsap) {
-      gsap.to("#loaderScreen .loader-content", {
-        scale: 1.18,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.inOut",
-        onComplete: () => {
-          App.showScreen("welcome");
-          TypingEffect.typeWelcome();
-        },
-      });
-    } else {
-      App.showScreen("welcome");
+    if (window.Effects && Effects.screenFlash) {
+      Effects.screenFlash();
+    }
+
+    App.showScreen("welcome");
+
+    if (window.TypingEffect && TypingEffect.typeWelcome) {
       TypingEffect.typeWelcome();
     }
   },
 
   goEnvelope() {
-    Effects.screenFlash();
+    if (window.MusicController && MusicController.playLetter) {
+      MusicController.playLetter();
+    }
+
+    if (window.Effects && Effects.screenFlash) {
+      Effects.screenFlash();
+    }
+
     App.showScreen("envelope");
 
     setTimeout(() => {
-      EnvelopeController.openEnvelope();
-    }, 700);
+      if (window.EnvelopeController && EnvelopeController.openEnvelope) {
+        EnvelopeController.openEnvelope();
+      }
+    }, 500);
   },
 };

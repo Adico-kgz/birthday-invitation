@@ -684,3 +684,33 @@ button {
 .map-card .gold-btn {
   margin-top: 12px;
 }
+button,
+.gold-btn,
+.neon-btn,
+.yes-btn,
+.no-btn,
+.floating-music-btn {
+  pointer-events: auto !important;
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#particles-js,
+canvas {
+  pointer-events: none !important;
+}
+
+.screen.active {
+  pointer-events: auto !important;
+}
+
+.loader-content,
+.welcome-content,
+.envelope-scene,
+.question-card,
+.invitation-card,
+.countdown-wrap,
+.map-card,
+.final-content {
+  pointer-events: auto !important;
+}
