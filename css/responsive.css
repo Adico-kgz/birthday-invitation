@@ -1,0 +1,131 @@
+@media (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
+
+  .screen {
+    padding: 22px;
+  }
+
+  #mainInvitationScreen {
+    padding-top: 24px;
+  }
+
+  .invitation-card,
+  .question-card,
+  .countdown-wrap,
+  .map-card {
+    padding: 26px;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .event-info div {
+    font-size: 15px;
+  }
+
+  #cursor,
+  #cursorGlow {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .loader-title,
+  .typing-title,
+  .final-content h1 {
+    font-size: 42px;
+  }
+
+  .typing-subtitle {
+    font-size: 17px;
+  }
+
+  .gold-btn,
+  .neon-btn,
+  .yes-btn,
+  .no-btn {
+    width: 100%;
+    min-height: 54px;
+  }
+
+  .answer-buttons {
+    flex-direction: column;
+  }
+
+  .envelope {
+    width: 320px;
+    height: 220px;
+  }
+
+  .envelope-letter {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .envelope-letter h3 {
+    font-size: 24px;
+  }
+
+  .countdown {
+    gap: 10px;
+  }
+
+  .countdown div {
+    padding: 14px 6px;
+  }
+
+  .signature {
+    font-size: 28px;
+  }
+}
+@media (max-height: 760px) {
+  .envelope-scene {
+    transform: scale(0.72);
+    margin-top: -40px;
+    margin-bottom: -70px;
+  }
+
+  #toQuestionBtn {
+    margin-top: -20px;
+  }
+
+  .invitation-card {
+    transform: scale(0.82);
+    margin-top: -35px;
+    margin-bottom: -55px;
+  }
+
+  .invitation-card h1 {
+    font-size: clamp(34px, 6vw, 62px);
+    margin-bottom: 18px;
+  }
+
+  .event-info {
+    gap: 9px;
+  }
+
+  .event-info div {
+    padding: 10px 14px;
+  }
+
+  .countdown-wrap,
+  .map-card {
+    padding: 18px;
+    margin-top: 12px;
+  }
+}
+
+#mainInvitationScreen {
+  overflow-y: auto;
+}
+
+.envelope {
+  max-width: 90vw;
+}
+
+.envelope-letter {
+  overflow: hidden;
+}
