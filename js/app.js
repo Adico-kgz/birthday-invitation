@@ -6,15 +6,15 @@ window.App = {
   init() {
     this.cacheScreens();
 
-    if (window.CursorEffect) CursorEffect.init();
-    if (window.MusicController) MusicController.init();
-    if (window.ParticlesBackground) ParticlesBackground.init();
-    if (window.LoaderScreen) LoaderScreen.init();
-    if (window.EnvelopeController) EnvelopeController.init();
-    if (window.QuestionButtons) QuestionButtons.init();
-    if (window.CountdownTimer) CountdownTimer.init();
-    if (window.MapController) MapController.init();
-    if (window.Effects) Effects.init();
+    if (typeof CursorEffect !== "undefined") CursorEffect.init();
+    if (typeof MusicController !== "undefined") MusicController.init();
+    if (typeof ParticlesBackground !== "undefined") ParticlesBackground.init();
+    if (typeof LoaderScreen !== "undefined") LoaderScreen.init();
+    if (typeof EnvelopeController !== "undefined") EnvelopeController.init();
+    if (typeof QuestionButtons !== "undefined") QuestionButtons.init();
+    if (typeof CountdownTimer !== "undefined") CountdownTimer.init();
+    if (typeof MapController !== "undefined") MapController.init();
+    if (typeof Effects !== "undefined") Effects.init();
 
     initGuestName();
     initCalendarButton();

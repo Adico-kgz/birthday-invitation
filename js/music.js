@@ -54,7 +54,7 @@ const MusicController = {
   },
 
   playCinematic() {
-    this.playIntro();
+    this.fadeTo(this.intro);
   },
 
   playIntro() {
@@ -62,11 +62,11 @@ const MusicController = {
   },
 
   playLetter() {
-    this.crossfadeTo(this.letter, 0.35);
+    this.fadeTo(this.letter);
   },
 
   playParty() {
-    this.crossfadeTo(this.party, 0.65);
+    this.fadeTo(this.party);
     this.playFireworks();
   },
 
@@ -124,5 +124,44 @@ const MusicController = {
     };
 
     requestAnimationFrame(step);
+  },
+  fadeTo(newAudio, duration = 1500) {
+    const current = this.currentMusic;
+
+    if (current === newAudio) return;
+
+    if (newAudio.paused) {
+      newAudio.volume = 0;
+      newAudio.play();
+    }
+
+    const fps = 30;
+    const steps = duration / fps;
+    let i = 0;
+
+    const interval = setInterval(() => {
+      i++;
+
+      const progress = i / steps;
+
+      if (current) {
+        current.volume = 1 - progress;
+      }
+
+      newAudio.volume = progress;
+
+      if (progress >= 1) {
+        clearInterval(interval);
+
+        if (current) {
+          current.pause();
+          current.currentTime = 0;
+          current.volume = 1;
+        }
+
+        newAudio.volume = 1;
+        this.currentMusic = newAudio;
+      }
+    }, fps);
   },
 };

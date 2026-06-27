@@ -714,3 +714,19 @@ canvas {
 .final-content {
   pointer-events: auto !important;
 }
+#openInvitationBtn,
+#openInvitationBtn * {
+  pointer-events: auto !important;
+  z-index: 999999 !important;
+}
+
+#openInvitationBtn {
+  position: relative !important;
+  touch-action: manipulation !important;
+}
+
+#particles-js,
+#particles-js canvas,
+canvas {
+  pointer-events: none !important;
+}

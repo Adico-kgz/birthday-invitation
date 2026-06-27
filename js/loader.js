@@ -52,34 +52,34 @@ const LoaderScreen = {
   },
 
   openInvitation() {
-    if (window.MusicController && MusicController.playIntro) {
+    if (typeof MusicController !== "undefined") {
       MusicController.playIntro();
     }
 
-    if (window.Effects && Effects.screenFlash) {
+    if (typeof Effects !== "undefined") {
       Effects.screenFlash();
     }
 
     App.showScreen("welcome");
 
-    if (window.TypingEffect && TypingEffect.typeWelcome) {
+    if (typeof TypingEffect !== "undefined") {
       TypingEffect.typeWelcome();
     }
   },
 
   goEnvelope() {
-    if (window.MusicController && MusicController.playLetter) {
+    if (typeof MusicController !== "undefined") {
       MusicController.playLetter();
     }
 
-    if (window.Effects && Effects.screenFlash) {
+    if (typeof Effects !== "undefined") {
       Effects.screenFlash();
     }
 
     App.showScreen("envelope");
 
     setTimeout(() => {
-      if (window.EnvelopeController && EnvelopeController.openEnvelope) {
+      if (typeof EnvelopeController !== "undefined") {
         EnvelopeController.openEnvelope();
       }
     }, 500);
