@@ -4,29 +4,31 @@ const MapController = {
   destination: {
     lat: 42.8746,
     lng: 74.5698,
-    address: "Secret Music Hall, Ауэзова 24/3, Бишкек",
+    address: "Secret Music Hall, Бишкек, ул. Ауэзова 24/3"
   },
 
   init() {
     this.routeBtn = document.getElementById("routeBtn");
     this.distanceText = document.getElementById("distanceText");
 
-    this.routeBtn.addEventListener("click", () => this.openRoute());
+    if (this.routeBtn) {
+      this.routeBtn.addEventListener("click", () => this.openRoute());
+    }
+
     this.tryGeoDistance();
   },
 
   openRoute() {
-    const encoded = encodeURIComponent(this.destination.address);
-    window.open(
-      `https://www.google.com/maps/dir/?api=1&destination=${encoded}`,
-      "_blank",
-    );
+    const query = encodeURIComponent(this.destination.address);
+
+    const url = `https://2gis.kg/bishkek/search/${query}`;
+
+    window.open(url, "_blank");
   },
 
   tryGeoDistance() {
     if (!navigator.geolocation) {
-      this.distanceText.textContent =
-        "Геолокация не поддерживается на этом устройстве.";
+      this.distanceText.textContent = "Геолокация не поддерживается на этом устройстве.";
       return;
     }
 
@@ -39,20 +41,19 @@ const MapController = {
           userLat,
           userLng,
           this.destination.lat,
-          this.destination.lng,
+          this.destination.lng
         );
 
         this.distanceText.textContent = `Примерное расстояние до места: ${distance.toFixed(1)} км`;
       },
       () => {
-        this.distanceText.textContent =
-          "Разреши геолокацию, чтобы увидеть расстояние до места.";
+        this.distanceText.textContent = "Разреши геолокацию, чтобы увидеть расстояние до места.";
       },
       {
         enableHighAccuracy: true,
         timeout: 8000,
-        maximumAge: 0,
-      },
+        maximumAge: 0
+      }
     );
   },
 
@@ -64,9 +65,9 @@ const MapController = {
     const a =
       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
       Math.cos(this.toRad(lat1)) *
-        Math.cos(this.toRad(lat2)) *
-        Math.sin(dLon / 2) *
-        Math.sin(dLon / 2);
+      Math.cos(this.toRad(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
@@ -74,6 +75,6 @@ const MapController = {
   },
 
   toRad(value) {
-    return (value * Math.PI) / 180;
-  },
+    return value * Math.PI / 180;
+  }
 };

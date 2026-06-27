@@ -129,3 +129,48 @@
 .envelope-letter {
   overflow: hidden;
 }
+@media (max-width: 600px) {
+  #envelopeScreen {
+    overflow-y: auto;
+    align-items: start;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .envelope-scene {
+    height: 620px;
+    transform: none;
+    margin: 0;
+  }
+
+  .envelope {
+    width: 92vw;
+    height: 300px;
+  }
+
+  .envelope-letter {
+    left: 5%;
+    right: 5%;
+    bottom: 55px;
+    min-height: 420px;
+    padding: 28px 24px;
+    font-size: 16px;
+    line-height: 1.55;
+    transform: translateY(145px);
+  }
+
+  .envelope-letter h3 {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .envelope-letter p {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  #toQuestionBtn {
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+}
