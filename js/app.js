@@ -1,3 +1,55 @@
+"use strict";
+
+window.App = {
+  screens: {},
+
+  init() {
+    this.cacheScreens();
+
+    if (window.CursorEffect) CursorEffect.init();
+    if (window.MusicController) MusicController.init();
+    if (window.ParticlesBackground) ParticlesBackground.init();
+    if (window.LoaderScreen) LoaderScreen.init();
+    if (window.EnvelopeController) EnvelopeController.init();
+    if (window.QuestionButtons) QuestionButtons.init();
+    if (window.CountdownTimer) CountdownTimer.init();
+    if (window.MapController) MapController.init();
+    if (window.Effects) Effects.init();
+
+    initGuestName();
+    initCalendarButton();
+  },
+
+  cacheScreens() {
+    this.screens.loader = document.getElementById("loaderScreen");
+    this.screens.welcome = document.getElementById("welcomeScreen");
+    this.screens.envelope = document.getElementById("envelopeScreen");
+    this.screens.question = document.getElementById("questionScreen");
+    this.screens.main = document.getElementById("mainInvitationScreen");
+    this.screens.final = document.getElementById("finalScreen");
+  },
+
+  showScreen(name) {
+    Object.values(this.screens).forEach((screen) => {
+      if (screen) screen.classList.remove("active");
+    });
+
+    if (this.screens[name]) {
+      this.screens[name].classList.add("active");
+    }
+  },
+};
+
+function initGuestName() {
+  const guestName = document.getElementById("guestName");
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+
+  if (guestName && name) {
+    guestName.textContent = `Дорогой ${decodeURIComponent(name)} ❤️`;
+  }
+}
+
 function initCalendarButton() {
   const calendarBtn = document.getElementById("calendarBtn");
 
@@ -37,3 +89,7 @@ function initCalendarButton() {
     URL.revokeObjectURL(url);
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  window.App.init();
+});
