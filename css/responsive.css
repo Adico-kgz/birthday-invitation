@@ -132,45 +132,55 @@
 @media (max-width: 600px) {
   #envelopeScreen {
     overflow-y: auto;
-    align-items: start;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    align-items: flex-start;
+    padding-top: calc(90px + env(safe-area-inset-top));
+    padding-bottom: calc(140px + env(safe-area-inset-bottom));
   }
 
   .envelope-scene {
-    height: 620px;
+    height: auto;
+    min-height: 720px;
     transform: none;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .envelope {
-    width: 92vw;
-    height: 300px;
+    width: 86vw;
+    height: 280px;
+    margin-top: 120px;
   }
 
   .envelope-letter {
     left: 5%;
     right: 5%;
     bottom: 55px;
-    min-height: 420px;
-    padding: 28px 24px;
-    font-size: 16px;
-    line-height: 1.55;
-    transform: translateY(145px);
+    min-height: 360px;
+    padding: 26px 22px;
+    font-size: 15px;
+    line-height: 1.45;
+    transform: translateY(120px);
   }
 
   .envelope-letter h3 {
-    font-size: 28px;
-    margin-bottom: 16px;
+    font-size: 26px;
+    margin-bottom: 14px;
   }
 
   .envelope-letter p {
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: 15px;
+    line-height: 1.45;
   }
 
   #toQuestionBtn {
-    margin-top: 10px;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 90px;
+  }
+
+  .floating-music-btn {
+    top: calc(84px + env(safe-area-inset-top));
+    right: 18px;
   }
 }
