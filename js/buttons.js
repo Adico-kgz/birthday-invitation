@@ -23,6 +23,8 @@ const QuestionButtons = {
     this.noBtn = document.getElementById("noBtn");
     this.questionCard = document.querySelector(".question-card");
 
+    if (!this.yesBtn || !this.noBtn) return;
+
     this.noBtn.addEventListener("mouseenter", () => this.escape());
     this.noBtn.addEventListener("mousemove", () => this.escape());
 
@@ -76,15 +78,12 @@ const QuestionButtons = {
   },
 
   accept() {
-    if (window.MusicController && MusicController.playParty) {
+    if (typeof MusicController !== "undefined" && MusicController.playParty) {
       MusicController.playParty();
     }
 
-    Fireworks.launchCelebration();
-
-    setTimeout(() => {
+    if (typeof App !== "undefined") {
       App.showScreen("main");
-      Effects.animateInvitationCard();
-    }, 1300);
+    }
   },
 };
