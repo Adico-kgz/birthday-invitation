@@ -730,3 +730,27 @@ canvas {
 canvas {
   pointer-events: none !important;
 }
+.music-prompt {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(8px);
+}
+
+.music-prompt.hidden {
+  display: none;
+}
+
+.start-music-btn {
+  min-height: 58px;
+  padding: 0 28px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 900;
+  color: #111;
+  background: linear-gradient(135deg, #f6c453, #fff1a8);
+  box-shadow: 0 0 35px rgba(246, 196, 83, 0.45);
+}

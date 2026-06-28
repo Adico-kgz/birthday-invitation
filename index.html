@@ -27,92 +27,25 @@
     <button id="musicToggle" class="floating-music-btn">
       <i class="fa-solid fa-volume-high"></i>
     </button>
+    <div id="musicPrompt" class="music-prompt">
+      <button id="startMusicBtn" class="start-music-btn">
+        🔊 Включить музыку
+      </button>
+    </div>
     <div id="cursor"></div>
     <div id="cursorGlow"></div>
 
     <audio
-      id="introMusic"
-      src="music/nastelbom-cinematic-piano-437417.mp3"
-      preload="auto"
-      loop
-    ></audio>
-
-    <audio
-      id="letterMusic"
-      src="music/scott-buckley-filaments.mp3"
-      preload="auto"
-      loop
-    ></audio>
-
-    <audio
       id="partyMusic"
-      src="music/tomomi_kato-lost-paradise-370179.mp3"
-      preload="auto"
-      loop
-    ></audio>
-
-    <audio
-      id="fireworksSound"
-      src="music/yasuko-last-fireworks-389604.mp3"
-      preload="auto"
-    ></audio>
-
-    <audio
-      id="clickSound"
       src="music/leberch-soft-soft-music-522730.mp3"
       preload="auto"
+      loop
     ></audio>
 
     <div id="particles-js"></div>
 
     <main class="app">
-      <section id="loaderScreen" class="screen active">
-        <div class="gold-orb orb-one"></div>
-        <div class="gold-orb orb-two"></div>
-        <div class="loader-content">
-          <p id="guestName" class="guest-name"></p>
-          <p class="small-label">Birthday Invitation</p>
-          <h1 class="loader-title">
-            У меня есть для тебя небольшой сюрприз...
-          </h1>
-          <button id="openInvitationBtn" class="gold-btn">
-            <span>Открыть приглашение</span>
-            <i class="fa-solid fa-gift"></i>
-          </button>
-        </div>
-      </section>
-
-      <section id="welcomeScreen" class="screen">
-        <div class="parallax-layer layer-a"></div>
-        <div class="parallax-layer layer-b"></div>
-        <div class="welcome-content">
-          <p class="small-label">Special day</p>
-          <h2 id="welcomeTyping" class="typing-title"></h2>
-          <p id="welcomeTypingSecond" class="typing-subtitle"></p>
-          <button id="continueToEnvelopeBtn" class="neon-btn">
-            Продолжить
-          </button>
-        </div>
-      </section>
-
-      <section id="envelopeScreen" class="screen">
-        <div class="envelope-scene">
-          <div id="envelope" class="envelope">
-            <div class="envelope-back"></div>
-            <div class="envelope-letter">
-              <h3>Дорогой друг ❤️</h3>
-              <p id="letterTyping"></p>
-            </div>
-            <div class="envelope-front"></div>
-            <div class="envelope-flap"></div>
-          </div>
-        </div>
-        <button id="toQuestionBtn" class="gold-btn hidden-btn">
-          Читать дальше
-        </button>
-      </section>
-
-      <section id="questionScreen" class="screen">
+      <section id="questionScreen" class="screen active">
         <div class="question-card glass">
           <p class="small-label">Главный вопрос</p>
           <h2>Ты придешь на мой день рождения?</h2>
@@ -133,8 +66,8 @@
         </div>
 
         <article id="invitationCard" class="invitation-card glass">
-          <p class="small-label">Приглашаю на</p>
-          <h1>ДЕНЬ РОЖДЕНИЯ</h1>
+          <p class="small-label">Жду тебя на своём</p>
+          <h1>ДНЕ РОЖДЕНИЯ</h1>
 
           <div class="event-info">
             <div>
@@ -155,7 +88,7 @@
             </div>
             <div>
               <i class="fa-solid fa-shirt"></i>
-              <span>Приходим в дресс-коде</span>
+              <span>Дресс-код: Blue Style 💙 / Black Casual 🖤</span>
             </div>
           </div>
 
@@ -178,11 +111,7 @@
           <p id="distanceText" class="distance-text"></p>
           <button id="routeBtn" class="neon-btn">
             <i class="fa-solid fa-route"></i>
-            Показать маршрут
-          </button>
-          <button id="calendarBtn" class="gold-btn calendar-btn">
-            <i class="fa-regular fa-calendar-plus"></i>
-            Добавить в календарь
+            📍 Открыть маршрут в 2ГИС
           </button>
         </section>
 
@@ -191,10 +120,11 @@
 
       <section id="finalScreen" class="screen">
         <div class="final-content">
-          <p class="small-label">До встречи</p>
+          <!-- <p class="small-label">До встречи</p> -->
           <h1>До встречи ❤️</h1>
           <h2>5 июля</h2>
           <p>Secret Music Hall</p>
+          <p>Спасибо, что разделишь этот день со мной. ❤️</p>
           <p class="signature">Ваш Адил</p>
         </div>
       </section>
@@ -204,17 +134,14 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
-    <script src="js/particles.js?v=20"></script>
-    <script src="js/music.js?v=20"></script>
-    <script src="js/typing.js?v=20"></script>
-    <script src="js/loader.js?v=20"></script>
-    <script src="js/envelope.js?v=20"></script>
-    <script src="js/buttons.js?v=20"></script>
-    <script src="js/countdown.js?v=20"></script>
-    <script src="js/fireworks.js?v=20"></script>
-    <script src="js/cursor.js?v=20"></script>
-    <script src="js/map.js?v=20"></script>
-    <script src="js/effects.js?v=20"></script>
-    <script src="js/app.js?v=20"></script>
+    <script src="js/particles.js?v=60"></script>
+    <script src="js/music.js?v=60"></script>
+    <script src="js/buttons.js?v=60"></script>
+    <script src="js/countdown.js?v=60"></script>
+    <script src="js/fireworks.js?v=60"></script>
+    <script src="js/cursor.js?v=60"></script>
+    <script src="js/map.js?v=60"></script>
+    <script src="js/effects.js?v=60"></script>
+    <script src="js/app.js?v=60"></script>
   </body>
 </html>
